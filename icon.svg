@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+    <defs>
+        <!-- Glow filters -->
+        <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="12" result="blur"/>
+            <feFlood flood-color="#00cfff" flood-opacity="0.6" result="color"/>
+            <feComposite in="color" in2="blur" operator="in" result="glow"/>
+            <feMerge>
+                <feMergeNode in="glow"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="glowMagenta" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="12" result="blur"/>
+            <feFlood flood-color="#d946ef" flood-opacity="0.6" result="color"/>
+            <feComposite in="color" in2="blur" operator="in" result="glow"/>
+            <feMerge>
+                <feMergeNode in="glow"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <!-- Connection line gradient -->
+        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#00cfff;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#d946ef;stop-opacity:1"/>
+        </linearGradient>
+        <!-- Background gradient -->
+        <radialGradient id="bg" cx="50%" cy="40%" r="80%" fx="50%" fy="35%">
+            <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#0c0a1d;stop-opacity:1"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Background with rounded corners -->
+    <rect width="512" height="512" fill="url(#bg)" rx="90"/>
+
+    <!-- Connection line -->
+    <line x1="228" y1="260" x2="310" y2="260" stroke="url(#lineGrad)" stroke-width="14" stroke-linecap="round" filter="url(#glowCyan)"/>
+
+    <!-- Circle (Left) - Cyan -->
+    <circle cx="168" cy="260" r="72" fill="none" stroke="#00cfff" stroke-width="16" filter="url(#glowCyan)"/>
+
+    <!-- Square (Right) - Magenta -->
+    <rect x="296" y="196" width="128" height="128" rx="12" fill="none" stroke="#d946ef" stroke-width="16" filter="url(#glowMagenta)"/>
+</svg>
